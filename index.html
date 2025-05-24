@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text-to-Speech Web App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🗣️ Text-to-Speech App</h1>
+    <label class="toggle-switch" aria-label="Toggle dark mode">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <div class="grid">
+    <!-- Text Input Card -->
+    <div class="card">
+      <label for="text">Enter Text</label>
+      <textarea id="text" placeholder="Type or paste text..."></textarea>
+      <div class="char-count" id="charCount">0 characters</div>
+    </div>
+
+    <!-- Settings & Controls Card -->
+    <div class="card">
+      <label for="voiceSelect">Choose Voice <span aria-hidden="true" title="Select the TTS voice">❔</span></label>
+      <select id="voiceSelect"></select>
+
+      <label for="rate">Rate: <span id="rateValue">1</span> <span aria-hidden="true" title="0.5=slow, 2=fast">❔</span></label>
+      <input type="range" id="rate" min="0.5" max="2" value="1" step="0.1" />
+
+      <label for="pitch">Pitch: <span id="pitchValue">1</span> <span aria-hidden="true" title="0=low, 2=high">❔</span></label>
+      <input type="range" id="pitch" min="0" max="2" value="1" step="0.1" />
+
+      <div class="controls" role="group" aria-label="Speech controls">
+        <button id="startBtn">▶️ Start</button>
+        <button id="stopBtn">⏹ Stop</button>
+      </div>
+
+      <div class="status">
+        <div class="spinner" id="spinner"></div>
+        <div id="statusText">Idle</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Playback & Download -->
+  <div class="card playback-card">
+    <audio id="audioPlayback" controls></audio>
+    <div id="downloadLinkContainer"></div>
+  </div>
+
+  <footer>© 2025 Your App Name</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
